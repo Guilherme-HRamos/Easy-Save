@@ -27,7 +27,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
  */
 
 
-public class EasySaveUtil {
+class EasySaveUtil {
 
     /**
      * Salvar o dado que você precisa
@@ -36,7 +36,7 @@ public class EasySaveUtil {
      * @param context contexto
      * @return true -> ok / false -> Não foi possível salvar
      */
-    protected static boolean saveData(String key, Object json, Context context) {
+    static boolean saveData(String key, Object json, Context context) {
         return writeObject(context, key, new Gson().toJson(json));
     }
 
@@ -46,7 +46,7 @@ public class EasySaveUtil {
      * @param context contexto
      * @return em {@code String} o JSON salvo na memória
      */
-    protected static String retrieveData(String key, Context context) {
+    static String retrieveData(String key, Context context) {
         return String.valueOf(readObject(context, key));
     }
 
