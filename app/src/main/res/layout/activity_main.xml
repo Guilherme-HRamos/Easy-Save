@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="16dp">
+
+            <EditText
+                android:id="@+id/main_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="write a note here"/>
+
+            <Button
+                android:id="@+id/main_add_item_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="add item to list"/>
+
+            <Button
+                android:id="@+id/main_save_all_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="save notes (restore closing app)"/>
+
+            <Button
+                android:id="@+id/main_save_item_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="save only one note"/>
+
+            <Button
+                android:id="@+id/main_restore_item_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="restore only one note"/>
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/main_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"/>
+
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
