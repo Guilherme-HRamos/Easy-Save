@@ -103,7 +103,7 @@ All objects and lists are saved in cache. If you want look the source code.
 
 ##### Dependencies
 
-[Gson] by Google (https://github.com/google/gson)
+Gson by Google (https://github.com/google/gson)
 
 ## Contribution
 
