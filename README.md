@@ -4,6 +4,7 @@
 
 
 Now it's very easy to save lists and objects!
+*note: this is my first lib, so be patience with mistakes, please*
 
 
 ## Examples
