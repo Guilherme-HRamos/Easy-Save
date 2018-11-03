@@ -50,12 +50,43 @@ So now we have our model, we can save or retrieve the data
 ```
 UserPrefs userPreferences = new UserPrefs();
 new EasySave(context).saveModel("my key", userPreferences);
+
+//or, u can do async
+new EasySave(context).saveModelAsync("my key", userPreferences, new SaveAsyncCallback<UserPrefs>() {
+                    @Override
+                    public void onComplete(final UserPrefs data) {
+		        // data saved
+                        doWhatever(data);
+                    }
+
+                    @Override
+                    public void onError(final String message) {
+                        showMessage(message);
+                    }
+                });
 ```
 
 ###### Retrieve an object
 
 ```
 UserPrefs userPreferences = new EasySave(context).retrieveModel("my key", UserPrefs.class);
+
+//or, u can do async
+new EasySave(context)
+                .retrieveModelAsync("my key", UserPrefs.class, new LoadAsyncCallback<UserPrefs>() {
+                    @Override
+                    public void onComplete(final UserPrefs data) {
+
+                        doWhatever(data);
+
+
+                    }
+
+                    @Override
+                    public void onError(final String message) {
+                        showMessage(message);
+                    }
+                });
 ```
 ###### Save a list of objects
 
@@ -67,12 +98,42 @@ myList.add(user2);
 ...
 
 new EasySave(context).saveList("my keys", myList);
+
+//or u can do async
+new EasySave(context)
+                .saveListAsync("my keys", myList, new SaveAsyncCallback<List<UserPrefs>>() {
+                    @Override
+                    public void onComplete(final List<UserPrefs> data) {
+                        doWhatever(data);
+                    }
+
+                    @Override
+                    public void onError(final String message) {
+                        showMessage(message);
+                    }
+                });
 ```
 
 ###### Retrieve a list of objects
 
 ```
-List<UserPrefs> myList = new EasySave(context).retrieveList("my keys", User.Prefs[].class);
+List<UserPrefs> myList = new EasySave(context).retrieveList("my keys", UserPrefs[].class);
+
+//or u can do async
+new EasySave(context)
+                .retrieveListAsync("my keys", UserPrefs[].class, new LoadAsyncCallback<List<UserPrefs>>() {
+                    @Override
+                    public void onComplete(final List<UserPrefs> dataList) {
+		    
+                        doWhatever(dataList);
+                    
+		    }
+
+                    @Override
+                    public void onError(final String message) {
+                        showMessage(message);
+                    }
+                });
 ```
 
 ###### Warning
