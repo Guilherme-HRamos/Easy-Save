@@ -28,11 +28,26 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
  */
 
 public class EasySave extends EasySaveUtil {
-
     private final Context context;
 
     public EasySave(Context context) {
         this.context = context;
+    }
+
+    public <T> void saveModelAsync(final String key, final T objectModel,  SaveAsyncCallback<T> callback) {
+        new SaveAsync<T>(this, objectModel, key, callback).execute();
+    }
+
+    public <T> void saveListAsync(final String key, final List<T> list,  SaveAsyncCallback<List<T>> callback) {
+        new SaveListAsync<T>(this, list, key, callback).execute();
+    }
+
+    public <T> void retrieveModelAsync(String key, Class<T> objectModel, LoadAsyncCallback<T> callback) {
+        new LoadObjectAsync<T>(this, objectModel, key, callback).execute();
+    }
+
+    public <T> void retrieveListAsync(String key, Class<T[]> objectModel, LoadAsyncCallback<List<T>> callback) {
+        new LoadListAsync<T>(this, objectModel, key, callback).execute();
     }
 
     /**
@@ -91,5 +106,4 @@ public class EasySave extends EasySaveUtil {
     public Object saveModel(String key, Object objectModel) {
         return EasySaveUtil.saveData(key, objectModel, context);
     }
-
 }
